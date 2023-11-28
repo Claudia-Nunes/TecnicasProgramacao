@@ -7,7 +7,7 @@ export interface CourseProps {
   
   export interface StudentProps {
     name: string;
-    courses: CourseProps[];
+    courses: Array<{ id: number; name: string; credit: number }>;
   }
   
   export interface CourseProps {
@@ -15,4 +15,5 @@ export interface CourseProps {
     name: string;
     credit: number;
   }
+  
   

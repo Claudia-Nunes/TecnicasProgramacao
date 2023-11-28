@@ -1,6 +1,6 @@
 // src/classes/Student.ts
 import Course from './Course';
-import { StudentProps, CourseProps } from './Types';  // Corrigindo os imports
+import { StudentProps } from './Types';
 
 export default class Student {
   name: string;
@@ -8,10 +8,13 @@ export default class Student {
 
   constructor({ name, courses }: StudentProps) {
     this.name = name;
-    this.courses = courses.map(course => new Course(course));
+    this.courses = courses.map(course => new Course(course.name, course.credit));
   }
 
   toJSON() {
-    return { name: this.name, courses: this.courses.map(course => course.toJSON()) };
+    return {
+      name: this.name,
+      courses: this.courses.map(course => course.toJSON()),
+    };
   }
 }
